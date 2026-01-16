@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MUDr. Petr Miller – praktický lékař Fulnek</title>
+  <meta name="description" content="Praktický lékař Fulnek – ordinační hodiny, kontakt, recepty, konzultace výsledků. MUDr. Petr Miller." />
+  <meta name="theme-color" content="#0f766e" />
+
+  <style>
+    :root{
+      --bg:#0b1220;
+      --card:#0f1b33;
+      --muted:#9fb1d1;
+      --text:#eaf0ff;
+      --accent:#14b8a6;
+      --accent2:#60a5fa;
+      --border:rgba(255,255,255,.08);
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius: 18px;
+      --max: 1080px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      background: radial-gradient(1200px 700px at 20% -10%, rgba(20,184,166,.35), transparent 60%),
+                  radial-gradient(900px 700px at 90% 0%, rgba(96,165,250,.25), transparent 55%),
+                  var(--bg);
+      color:var(--text);
+      line-height:1.55;
+    }
+    a{color:inherit}
+    .wrap{max-width:var(--max); margin:0 auto; padding:24px}
+    header{
+      position:sticky; top:0; backdrop-filter: blur(10px);
+      background: rgba(11,18,32,.65); border-bottom:1px solid var(--border);
+      z-index:20;
+    }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:16px; padding:12px 24px;
+      max-width: var(--max); margin:0 auto;
+    }
+    .brand strong{font-size:16px}
+    .brand span{font-size:13px; color:var(--muted)}
+    .links{display:flex; gap:12px}
+    .links a{
+      text-decoration:none; font-size:14px; color:var(--muted);
+      padding:8px 10px; border-radius:12px;
+    }
+    .links a:hover{color:var(--text); background: rgba(255,255,255,.06)}
+    .hero{
+      padding:40px 0 18px;
+      display:grid; grid-template-columns: 1.2fr .8fr; gap:18px;
+    }
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      border:1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding:18px;
+    }
+    h1{margin:0 0 8px; font-size:34px}
+    .lead{color:var(--muted)}
+    .pillbar{display:flex; flex-wrap:wrap; gap:10px; margin-top:14px}
+    .pill{
+      padding:10px 12px; border-radius:999px;
+      background: rgba(20,184,166,.12);
+      border:1px solid rgba(20,184,166,.25);
+      font-size:14px;
+    }
+    .pill.secondary{
+      background: rgba(96,165,250,.10);
+      border:1px solid rgba(96,165,250,.22);
+    }
+    .grid{
+      display:grid; grid-template-columns: repeat(12, 1fr);
+      gap:18px; padding-bottom:40px;
+    }
+    .col-6{grid-column: span 6}
+    .col-8{grid-column: span 8}
+    .col-4{grid-column: span 4}
+    .col-12{grid-column: span 12}
+    h2{font-size:20px}
+    p, li{color:var(--muted)}
+    table{
+      width:100%; border-collapse:separate; border-spacing:0;
+      border-radius:14px; overflow:hidden;
+      border:1px solid var(--border);
+    }
+    th,td{padding:10px 12px; text-align:left}
+    th{background: rgba(255,255,255,.04)}
+    td{border-top:1px solid var(--border)}
+    .badge{
+      font-size:12px; padding:4px 8px; border-radius:999px;
+      background: rgba(255,255,255,.08);
+      margin-left:6px;
+    }
+    .note{
+      margin-top:10px; padding:10px 12px;
+      border-left:3px solid rgba(20,184,166,.6);
+      background: rgba(20,184,166,.08);
+      border-radius:12px;
+      font-size:14px;
+    }
+    footer{
+      border-top:1px solid var(--border);
+      padding:24px; color:var(--muted); font-size:13px;
+    }
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr}
+      .col-6,.col-8,.col-4{grid-column: span 12}
+      h1{font-size:28px}
+      .links{display:none}
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="nav">
+    <div class="brand">
+      <strong>MUDr. Petr Miller</strong><br>
+      <span>praktický lékař • Fulnek</span>
+    </div>
+    <nav class="links">
+      <a href="#kontakt">Kontakt</a>
+      <a href="#ordinace">Ordinační hodiny</a>
+      <a href="#recepty">Recepty</a>
+      <a href="#gdpr">GDPR</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+<section class="hero">
+  <div class="card">
+    <h1>Praktický lékař ve Fulneku</h1>
+    <p class="lead">
+      Základní informace pro pacienty – ordinační hodiny, kontakt, recepty a konzultace výsledků.
+    </p>
+
+    <div class="pillbar">
+      <div class="pill">📍 Palackého 313, Fulnek</div>
+      <div class="pill secondary">☎️ <a href="tel:+420556740517">556 740 517</a></div>
+      <div class="pill secondary">✉️ <a href="mailto:MUDr.MillerFulnek@gmail.com">MUDr.MillerFulnek@gmail.com</a></div>
+    </div>
+  </div>
+
+  <aside class="card">
+    <h2>Rychlé informace</h2>
+    <p>
+      <strong>Adresa:</strong><br>
+      Palackého 313, 742 45 Fulnek
+    </p>
+    <p>
+      <strong>Telefon:</strong><br>
+      <a href="tel:+420556740517">556 740 517</a>
+    </p>
+    <p>
+      <strong>E-mail:</strong><br>
+      <a href="mailto:MUDr.MillerFulnek@gmail.com">MUDr.MillerFulnek@gmail.com</a>
+    </p>
+    <p>
+      <strong>IČO:</strong> 48804991
+    </p>
+  </aside>
+</section>
+
+<section class="grid">
+
+<section id="ordinace" class="card col-6">
+  <h2>Ordinační hodiny</h2>
+  <table>
+    <thead>
+      <tr><th>Den</th><th>Bez objednání</th><th>Pro objednané</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Pondělí</td><td>07:00–12:00</td><td>12:30–15:00</td></tr>
+      <tr><td>Úterý</td><td>07:00–12:00</td><td>12:30–15:00 <span class="badge">
+      <tr><td>Středa</td><td>08:00–11:30 objednaní</td><td>14:00–18:00</td></tr>
+      <tr><td>Čtvrtek</td><td>07:00–12:00</td><td>12:30–15:00</td></tr>
+      <tr><td>Pátek</td><td colspan="2">Neordinujeme</td></tr>
+    </tbody>
+  </table>
+
+  <div class="note">
+    Konzultace výsledků telefonicky:<br>
+    Pondělí, úterý, čtvrtek 12:30–14:00 • Středa 13:00–14:00
+  </div>
+</section>
+
+<section id="kontakt" class="card col-6">
+  <h2>Kontakt a objednání</h2>
+  <p>
+    Pro objednání, předpis léků buď telefonický kontakt nebo E-mail</p>
+  <p>    <strong>Telefon:</strong> 556 740 517<br>
+    <strong>E-mail:</strong> MUDr.MillerFulnek@gmail.com
+  </p>
+  <p>
+    Akutní stavy řešíme přednostně – pokud je to možné, volejte předem.
+    V život ohrožujícím stavu volejte 155 nebo 112.
+  </p>
+</section>
+
+<section id="recepty" class="card col-8">
+  <h2>Recepty a administrativa</h2>
+  <ul>
+    <li>Recepty vystavujeme na dlouhodobě užívané léky.</li>
+    <li>Uveďte jméno, datum narození, název léku a dávkování.</li>
+    <li>U některých léků může být nutná kontrola nebo vyšetření.</li>
+  </ul>
+</section>
+
+<section id="gdpr" class="card col-4">
+  <h2>GDPR</h2>
+  <p>
+    Zdravotnická dokumentace je vedena v souladu s platnou legislativou.
+    Informace o zdravotním stavu poskytujeme pouze oprávněným osobám.
+  </p>
+</section>
+
+</section>
+</main>
+<section id="nepritomnost" class="card col-12">
+  <h2>Dovolená, nepřítomnost a zastupování</h2>
+  <p>
+    Informace o plánované dovolené nebo mimořádné nepřítomnosti lékaře
+    jsou vždy s předstihem zveřejněny:
+  </p>
+  <ul>
+    <li>na vstupních dveřích ordinace,</li>
+    <li>na těchto webových stránkách,</li>
+    <li>případně na telefonním záznamníku ordinace.</li>
+  </ul>
+
+  <p>
+    <strong>Zastupující lékař</strong> je vždy uveden v oznámení o nepřítomnosti.
+    V akutních stavech se pacienti mohou obrátit na uvedené zastupující pracoviště,
+    případně na nejbližší zdravotnické zařízení.
+  </p>
+
+  <div class="note">
+<strong>AKTUÁLNÍ INFORMACE:</strong><br>
+  V současné době není plánována žádná dovolená ani nepřítomnost lékaře.
+  </div>
+</section>
+
+
+<footer>
+  © <span id="year"></span> MUDr. Petr Miller – praktický lékař, Palackého 313, Fulnek • IČO 48804991<br>
+  Tento web slouží pouze k informování pacientů.
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
