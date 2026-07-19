@@ -1,53 +1,618 @@
 <!doctype html>
 <html lang="cs">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <title>MUDr. Petr Miller – praktický lékař Fulnek</title>
-  <meta name="description" content="Praktický lékař Fulnek – ordinační hodiny, kontakt, recepty, konzultace výsledků. MUDr. Petr Miller." />
-  <meta name="theme-color" content="#0f766e" />
+
+  <meta
+    name="description"
+    content="Praktický lékař Fulnek – ordinační hodiny, kontakt, recepty a konzultace výsledků. MUDr. Petr Miller."
+  >
+
+  <meta name="theme-color" content="#0f766e">
+
   <style>
-    :root{--bg:#0b1220;--card:#0f1b33;--muted:#9fb1d1;--text:#eaf0ff;--accent:#14b8a6;--accent2:#60a5fa;--border:rgba(255,255,255,.08);--shadow:0 10px 30px rgba(0,0,0,.35);--radius:18px;--max:1080px}
-    *{box-sizing:border-box}
-    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;background:radial-gradient(1200px 700px at 20% -10%,rgba(20,184,166,.35),transparent 60%),radial-gradient(900px 700px at 90% 0%,rgba(96,165,250,.25),transparent 55%),var(--bg);color:var(--text);line-height:1.55}
-    a{color:inherit}.wrap{max-width:var(--max);margin:0 auto;padding:24px}
-    header{position:sticky;top:0;backdrop-filter:blur(10px);background:rgba(11,18,32,.65);border-bottom:1px solid var(--border);z-index:20}
-    .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 24px;max-width:var(--max);margin:0 auto}
-    .brand strong{font-size:16px}.brand span{font-size:13px;color:var(--muted)}
-    .links{display:flex;gap:12px}.links a{text-decoration:none;font-size:14px;color:var(--muted);padding:8px 10px;border-radius:12px}.links a:hover{color:var(--text);background:rgba(255,255,255,.06)}
-    .holiday-big{margin:28px 0 10px;padding:30px;border:4px solid #facc15;border-left:16px solid #ef4444;background:linear-gradient(180deg,rgba(250,204,21,.28),rgba(239,68,68,.18));border-radius:24px;box-shadow:0 14px 40px rgba(0,0,0,.45);text-align:center}
-    .holiday-big .title{font-size:44px;line-height:1.1;font-weight:900;color:#fff;margin:0 0 12px;text-transform:uppercase}
-    .holiday-big .date{font-size:36px;line-height:1.2;font-weight:900;color:#fff;margin:10px 0}
-    .holiday-big .text{font-size:23px;color:#fff;margin:10px 0}
-    .holiday-big .doctor{font-size:25px;color:#fff;font-weight:800;margin:14px 0 4px}
-    .holiday-big .address{font-size:21px;color:#fff;margin:0}
-    .hero{padding:22px 0 18px;display:grid;grid-template-columns:1.2fr .8fr;gap:18px}
-    .card{background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.02));border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:18px}
-    h1{margin:0 0 8px;font-size:34px}.lead{color:var(--muted)}
-    .pillbar{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}.pill{padding:10px 12px;border-radius:999px;background:rgba(20,184,166,.12);border:1px solid rgba(20,184,166,.25);font-size:14px}.pill.secondary{background:rgba(96,165,250,.10);border:1px solid rgba(96,165,250,.22)}
-    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:18px;padding-bottom:40px}.col-6{grid-column:span 6}.col-8{grid-column:span 8}.col-4{grid-column:span 4}
-    h2{font-size:20px}p,li{color:var(--muted)}
-    table{width:100%;border-collapse:separate;border-spacing:0;border-radius:14px;overflow:hidden;border:1px solid var(--border)}th,td{padding:10px 12px;text-align:left}th{background:rgba(255,255,255,.04)}td{border-top:1px solid var(--border)}
-    .note{margin-top:10px;padding:10px 12px;border-left:3px solid rgba(20,184,166,.6);background:rgba(20,184,166,.08);border-radius:12px;font-size:14px}
-    footer{border-top:1px solid var(--border);padding:24px;color:var(--muted);font-size:13px}
-    @media(max-width:900px){.hero{grid-template-columns:1fr}.col-6,.col-8,.col-4{grid-column:span 12}h1{font-size:28px}.links{display:none}.holiday-big .title{font-size:32px}.holiday-big .date{font-size:27px}.holiday-big .text{font-size:19px}.holiday-big .doctor{font-size:21px}.holiday-big .address{font-size:18px}}
+    :root {
+      --bg: #0b1220;
+      --card: #0f1b33;
+      --muted: #b1bfd8;
+      --text: #eaf0ff;
+      --accent: #14b8a6;
+      --accent2: #60a5fa;
+      --link: #7dd3fc;
+      --border: rgba(255, 255, 255, 0.09);
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+      --radius: 18px;
+      --max: 1080px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family:
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Helvetica,
+        Arial,
+        sans-serif;
+      background:
+        radial-gradient(
+          1200px 700px at 20% -10%,
+          rgba(20, 184, 166, 0.35),
+          transparent 60%
+        ),
+        radial-gradient(
+          900px 700px at 90% 0%,
+          rgba(96, 165, 250, 0.25),
+          transparent 55%
+        ),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    main a,
+    footer a {
+      color: var(--link);
+      text-decoration: none;
+    }
+
+    main a:hover,
+    main a:focus,
+    footer a:hover,
+    footer a:focus {
+      text-decoration: underline;
+    }
+
+    a:focus-visible {
+      outline: 3px solid rgba(125, 211, 252, 0.8);
+      outline-offset: 3px;
+      border-radius: 6px;
+    }
+
+    .wrap {
+      width: 100%;
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 24px;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(11, 18, 32, 0.82);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 12px 24px;
+    }
+
+    .brand {
+      line-height: 1.35;
+    }
+
+    .brand strong {
+      font-size: 16px;
+    }
+
+    .brand span {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 6px;
+    }
+
+    .links a {
+      padding: 8px 10px;
+      border-radius: 12px;
+      color: var(--muted);
+      font-size: 14px;
+      text-decoration: none;
+      transition:
+        color 0.2s ease,
+        background 0.2s ease;
+    }
+
+    .links a:hover,
+    .links a:focus {
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.07);
+      text-decoration: none;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.3fr 0.7fr;
+      gap: 18px;
+      padding: 22px 0 18px;
+    }
+
+    .card {
+      padding: 20px;
+      background:
+        linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.045),
+          rgba(255, 255, 255, 0.02)
+        ),
+        var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: clamp(28px, 4vw, 36px);
+      line-height: 1.2;
+    }
+
+    h2 {
+      margin: 0 0 14px;
+      font-size: 21px;
+      line-height: 1.3;
+      color: var(--text);
+    }
+
+    p,
+    li {
+      color: var(--muted);
+    }
+
+    p:first-child {
+      margin-top: 0;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+    .lead {
+      max-width: 680px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .pillbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .pill {
+      padding: 10px 13px;
+      background: rgba(20, 184, 166, 0.12);
+      border: 1px solid rgba(20, 184, 166, 0.28);
+      border-radius: 999px;
+      font-size: 14px;
+    }
+
+    .pill.secondary {
+      background: rgba(96, 165, 250, 0.11);
+      border-color: rgba(96, 165, 250, 0.25);
+    }
+
+    .pill a {
+      color: var(--text);
+    }
+
+    .quick-info p {
+      margin: 0 0 14px;
+    }
+
+    .quick-info p:last-child {
+      margin-bottom: 0;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      gap: 18px;
+      padding-bottom: 40px;
+    }
+
+    .col-4 {
+      grid-column: span 4;
+    }
+
+    .col-6 {
+      grid-column: span 6;
+    }
+
+    .col-8 {
+      grid-column: span 8;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+    }
+
+    th,
+    td {
+      padding: 11px 12px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background: rgba(255, 255, 255, 0.055);
+      color: var(--text);
+      font-size: 14px;
+    }
+
+    td {
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+    }
+
+    tbody tr:hover td {
+      background: rgba(255, 255, 255, 0.025);
+    }
+
+    ul {
+      margin-bottom: 0;
+      padding-left: 22px;
+    }
+
+    li + li {
+      margin-top: 7px;
+    }
+
+    .note {
+      margin-top: 14px;
+      padding: 11px 13px;
+      background: rgba(20, 184, 166, 0.09);
+      border-left: 4px solid rgba(20, 184, 166, 0.75);
+      border-radius: 12px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .emergency {
+      padding: 12px 14px;
+      background: rgba(239, 68, 68, 0.09);
+      border-left: 4px solid rgba(239, 68, 68, 0.75);
+      border-radius: 12px;
+    }
+
+    .emergency strong,
+    .emergency a {
+      color: #fecaca;
+    }
+
+    footer {
+      padding: 24px 0;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .footer-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    @media (max-width: 900px) {
+      .nav {
+        align-items: flex-start;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .col-4,
+      .col-6,
+      .col-8 {
+        grid-column: span 12;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .nav {
+        flex-direction: column;
+        gap: 8px;
+        padding: 12px 16px;
+      }
+
+      .links {
+        justify-content: flex-start;
+      }
+
+      .links a {
+        padding: 6px 8px;
+        font-size: 13px;
+      }
+
+      .wrap {
+        padding: 16px;
+      }
+
+      .hero {
+        padding-top: 16px;
+      }
+
+      .card {
+        padding: 17px;
+      }
+
+      .pill {
+        width: 100%;
+        border-radius: 13px;
+      }
+
+      .footer-inner {
+        padding: 0 16px;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .links {
+        gap: 3px;
+      }
+
+      .links a {
+        font-size: 12px;
+      }
+
+      table {
+        font-size: 14px;
+      }
+
+      th,
+      td {
+        padding: 9px 8px;
+      }
+
+      .lead {
+        font-size: 16px;
+      }
+    }
   </style>
 </head>
-<body>
-<header><div class="nav"><div class="brand"><strong>MUDr. Petr Miller</strong><br><span>praktický lékař • Fulnek</span></div><nav class="links"><a href="#kontakt">Kontakt</a><a href="#ordinace">Ordinační hodiny</a><a href="#recepty">Recepty</a><a href="#nepritomnost">Dovolená</a><a href="#gdpr">GDPR</a></nav></div></header>
-<main class="wrap">
 
-</section>
-<section class="hero"><div class="card"><h1>Praktický lékař ve Fulneku</h1><p class="lead">Základní informace pro pacienty – ordinační hodiny, kontakt, recepty a konzultace výsledků.</p><div class="pillbar"><div class="pill">📍 Palackého 313, Fulnek</div><div class="pill secondary">☎️ <a href="tel:+420556740517">556 740 517</a></div><div class="pill secondary">✉️ <a href="mailto:MUDr.MillerFulnek@gmail.com">MUDr.MillerFulnek@gmail.com</a></div></div></div>
-<aside class="card"><h2>Rychlé informace</h2><p><strong>Adresa:</strong><br>Palackého 313, 742 45 Fulnek</p><p><strong>Telefon:</strong><br><a href="tel:+420556740517">556 740 517</a></p><p><strong>E-mail:</strong><br><a href="mailto:MUDr.MillerFulnek@gmail.com">MUDr.MillerFulnek@gmail.com</a></p><p><strong>IČO:</strong> 48804991</p></aside></section>
-<section class="grid">
-<section id="ordinace" class="card col-6"><h2>Ordinační hodiny</h2><table><thead><tr><th>Den</th><th>Bez objednání</th><th>Pro objednané</th></tr></thead><tbody><tr><td>Pondělí</td><td>07:00–12:00</td><td>12:30–15:00</td></tr><tr><td>Úterý</td><td>07:00–12:00</td><td>12:30–15:00</td></tr><tr><td>Středa</td><td>návštěvy pacientů</td><td>14:00–18:00</td></tr><tr><td>Čtvrtek</td><td>07:00–12:00</td><td>12:30–15:00</td></tr><tr><td>Pátek</td><td colspan="2">Neordinujeme</td></tr></tbody></table><div class="note">Telefonický kontakt a konzultace výsledků v určenou dobu:<br>Pondělí, úterý, čtvrtek 12:30–14:00 • Středa 13:00–14:00</div></section>
-<section id="kontakt" class="card col-6"><h2>Kontakt a objednání</h2><p>Pro objednání a předpis léků využijte telefonický kontakt nebo e-mail.</p><p><strong>Telefon:</strong> 556 740 517<br><strong>E-mail:</strong> <a href="mailto:MUDr.MillerFulnek@gmail.com">MUDr.MillerFulnek@gmail.com</a></p><p>Akutní stavy řešíme přednostně – pokud je to možné, volejte předem. V život ohrožujícím stavu volejte 155 nebo 112.</p></section>
-<section id="recepty" class="card col-8"><h2>Recepty a administrativa</h2><ul><li>Recepty vystavujeme na dlouhodobě užívané léky.</li><li>Uveďte jméno, datum narození, název léku a dávkování.</li><li>U některých léků může být nutná kontrola nebo vyšetření.</li></ul></section>
-<section id="gdpr" class="card col-4"><h2>GDPR</h2><p>Zdravotnická dokumentace je vedena v souladu s platnou legislativou. Informace o zdravotním stavu poskytujeme pouze oprávněným osobám.</p></section>
-</section>
-</main>
-<footer>© <span id="year"></span> MUDr. Petr Miller – praktický lékař, Palackého 313, Fulnek • IČO 48804991<br>Tento web slouží pouze k informování pacientů.</footer>
-<script>document.getElementById("year").textContent=new Date().getFullYear();</script>
+<body>
+  <header>
+    <div class="nav">
+      <div class="brand">
+        <strong>MUDr. Petr Miller</strong><br>
+        <span>praktický lékař • Fulnek</span>
+      </div>
+
+      <nav class="links" aria-label="Hlavní navigace">
+        <a href="#kontakt">Kontakt</a>
+        <a href="#ordinace">Ordinační hodiny</a>
+        <a href="#recepty">Recepty</a>
+        <a href="#gdpr">GDPR</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <div class="card">
+        <h1>Praktický lékař ve Fulneku</h1>
+
+        <p class="lead">
+          Základní informace pro pacienty – ordinační hodiny, kontakt,
+          recepty a konzultace výsledků.
+        </p>
+
+        <div class="pillbar">
+          <div class="pill">
+            📍 Palackého 313, Fulnek
+          </div>
+
+          <div class="pill secondary">
+            ☎️
+            <a href="tel:+420556740517">556 740 517</a>
+          </div>
+
+          <div class="pill secondary">
+            ✉️
+            <a href="mailto:MUDr.MillerFulnek@gmail.com">
+              MUDr.MillerFulnek@gmail.com
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <aside class="card quick-info" aria-labelledby="rychle-informace">
+        <h2 id="rychle-informace">Rychlé informace</h2>
+
+        <p>
+          <strong>Adresa:</strong><br>
+          Palackého 313<br>
+          742 45 Fulnek
+        </p>
+
+        <p>
+          <strong>Telefon:</strong><br>
+          <a href="tel:+420556740517">556 740 517</a>
+        </p>
+
+        <p>
+          <strong>E-mail:</strong><br>
+          <a href="mailto:MUDr.MillerFulnek@gmail.com">
+            MUDr.MillerFulnek@gmail.com
+          </a>
+        </p>
+
+        <p>
+          <strong>IČO:</strong> 48804991
+        </p>
+      </aside>
+    </section>
+
+    <section class="grid">
+      <section id="ordinace" class="card col-6">
+        <h2>Ordinační hodiny</h2>
+
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Den</th>
+              <th scope="col">Bez objednání</th>
+              <th scope="col">Pro objednané</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>Pondělí</td>
+              <td>07:00–12:00</td>
+              <td>12:30–15:00</td>
+            </tr>
+
+            <tr>
+              <td>Úterý</td>
+              <td>07:00–12:00</td>
+              <td>12:30–15:00</td>
+            </tr>
+
+            <tr>
+              <td>Středa</td>
+              <td>Návštěvy pacientů</td>
+              <td>14:00–18:00</td>
+            </tr>
+
+            <tr>
+              <td>Čtvrtek</td>
+              <td>07:00–12:00</td>
+              <td>12:30–15:00</td>
+            </tr>
+
+            <tr>
+              <td>Pátek</td>
+              <td colspan="2">Neordinujeme</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="note">
+          <strong>Telefonické konzultace a konzultace výsledků:</strong><br>
+          Pondělí, úterý a čtvrtek 12:30–14:00<br>
+          Středa 13:00–14:00
+        </div>
+      </section>
+
+      <section id="kontakt" class="card col-6">
+        <h2>Kontakt a objednání</h2>
+
+        <p>
+          Pro objednání, předpis dlouhodobě užívaných léků a další
+          administrativní požadavky využijte telefon nebo e-mail.
+        </p>
+
+        <p>
+          <strong>Telefon:</strong>
+          <a href="tel:+420556740517">556 740 517</a><br>
+
+          <strong>E-mail:</strong>
+          <a href="mailto:MUDr.MillerFulnek@gmail.com">
+            MUDr.MillerFulnek@gmail.com
+          </a>
+        </p>
+
+        <p>
+          Akutní zdravotní obtíže řešíme přednostně. Pokud je to možné,
+          zavolejte předem.
+        </p>
+
+        <p class="emergency">
+          V život ohrožujícím stavu volejte
+          <strong><a href="tel:155">155</a></strong>
+          nebo
+          <strong><a href="tel:112">112</a></strong>.
+        </p>
+      </section>
+
+      <section id="recepty" class="card col-8">
+        <h2>Recepty a administrativa</h2>
+
+        <ul>
+          <li>
+            Recepty vystavujeme na dlouhodobě užívané léky.
+          </li>
+
+          <li>
+            V požadavku uveďte jméno, datum narození, název léku
+            a jeho dávkování.
+          </li>
+
+          <li>
+            U některých léků může být před vystavením receptu nutná
+            lékařská kontrola nebo vyšetření.
+          </li>
+        </ul>
+      </section>
+
+      <section id="gdpr" class="card col-4">
+        <h2>Ochrana osobních údajů</h2>
+
+        <p>
+          Zdravotnická dokumentace je vedena v souladu s platnými
+          právními předpisy. Informace o zdravotním stavu poskytujeme
+          pouze pacientovi nebo oprávněným osobám.
+        </p>
+      </section>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      © <span id="year"></span>
+      MUDr. Petr Miller – praktický lékař, Palackého 313, Fulnek
+      • IČO 48804991
+      <br>
+      Tento web slouží pouze k informování pacientů.
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+  </script>
 </body>
 </html>
