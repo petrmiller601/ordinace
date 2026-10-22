@@ -409,6 +409,26 @@
         font-size: 16px;
       }
     }
+
+    .vacation {
+      margin: 0 0 18px;
+      border: 2px solid #fbbf24;
+      background: linear-gradient(135deg, #332714, #17233a);
+    }
+
+    .vacation h2 { color: #fde68a; font-size: clamp(25px, 4vw, 34px); }
+    .vacation .vacation-intro { color: var(--text); font-size: 18px; }
+    .substitutes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+    .substitutes h3 { margin: 0 0 8px; font-size: 19px; }
+    .substitutes a { overflow-wrap: anywhere; }
+    .vacation-hours { margin-top: 18px; overflow-x: auto; }
+    .vacation-hours table { min-width: 440px; }
+    .vacation .holiday-note { color: #fde68a; border-left-color: #fbbf24; background: rgba(251, 191, 36, 0.08); }
+    .vacation-sources { font-size: 13px; margin-top: 14px; }
+    @media (max-width: 700px) {
+      .substitutes { grid-template-columns: 1fr; }
+      .vacation .vacation-intro { font-size: 16px; }
+    }
   </style>
 </head>
 
@@ -430,6 +450,67 @@
   </header>
 
   <main class="wrap">
+
+    <section id="dovolena" class="card vacation" aria-labelledby="dovolena-nadpis">
+      <h2 id="dovolena-nadpis">Dovolená 26.–30. 10. 2026</h2>
+      <p class="vacation-intro">
+        Ve dnech <strong>26. až 30. října 2026</strong> bude ordinace MUDr. Petra Millera
+        z důvodu dovolené uzavřena. Zastupují <strong>MUDr. Renata Svobodová</strong>
+        a <strong>MUDr. Lenka Štenclová</strong> ve svých ordinacích a ordinačních hodinách.
+      </p>
+
+      <div class="substitutes">
+        <div>
+          <h3>MUDr. Renata Svobodová</h3>
+          <p>
+            Masarykova 359, 742 45 Fulnek<br>
+            Telefon: <a href="tel:+420556740091">556 740 091</a><br>
+            E-mail: <a href="mailto:renata.vaisova@seznam.cz">renata.vaisova@seznam.cz</a><br>
+            Web: <a href="https://lekarfulnek.cz/">lekarfulnek.cz</a>
+          </p>
+        </div>
+        <div>
+          <h3>MUDr. Lenka Štenclová</h3>
+          <p>
+            Masarykova 338, 742 45 Fulnek<br>
+            Telefon: <a href="tel:+420556741720">556 741 720</a><br>
+            E-mail: <a href="mailto:lenka.stenclova@email.cz">lenka.stenclova@email.cz</a>
+          </p>
+        </div>
+      </div>
+
+      <div class="vacation-hours" role="region" aria-label="Ordinační hodiny zastupujících lékařek" tabindex="0">
+        <table>
+          <caption style="text-align: left; padding-bottom: 10px; font-weight: 600;">Zástup v týdnu 26.–30. 10. 2026</caption>
+          <thead>
+            <tr>
+              <th scope="col">Den</th>
+              <th scope="col">MUDr. Svobodová</th>
+              <th scope="col">MUDr. Štenclová</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Pondělí 26. 10.</th><td>07:00–13:00</td><td>07:00–12:00</td></tr>
+            <tr><th scope="row">Úterý 27. 10.</th><td>07:00–13:00</td><td>11:00–16:00</td></tr>
+            <tr><th scope="row">Středa 28. 10.</th><td colspan="2">Státní svátek – provoz není potvrzen, ověřte telefonicky.</td></tr>
+            <tr><th scope="row">Čtvrtek 29. 10.</th><td>07:00–13:00</td><td>07:30–12:00</td></tr>
+            <tr><th scope="row">Pátek 30. 10.</th><td>07:00–13:00</td><td>07:30–12:00</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="note holiday-note">
+        <strong>Upozornění na středu 28. října:</strong> Je státní svátek.
+        Běžné středeční hodiny (MUDr. Svobodová 12:00–18:00, MUDr. Štenclová 07:00–12:00)
+        nemusí platit. Před návštěvou si prosím dostupnost zástupu ověřte telefonicky.
+      </p>
+      <p class="vacation-sources">
+        Kontakty a běžné ordinační hodiny ověřeny 22. 10. 2026:
+        <a href="https://www.firmy.cz/detail/12863020-mudr-renata-svobodova-fulnek.html">MUDr. Svobodová</a>,
+        <a href="https://www.firmy.cz/detail/388029-mudr-lenka-stenclova-fulnek.html">MUDr. Štenclová</a>.
+      </p>
+    </section>
+
     <section class="hero">
       <div class="card">
         <h1>Praktický lékař ve Fulneku</h1>
